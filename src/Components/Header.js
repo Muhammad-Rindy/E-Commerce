@@ -7,12 +7,13 @@ function Header() {
     <Card className="bg-dark text-white header">
       <Card.Img src={logo} alt="Card image" className="gambar" />
       <Card.ImgOverlay>
-        <Card.Title>Card title</Card.Title>
-        <Card.Text>
-          This is a wider card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
+        <Card.Title className="text-center">Welcome to my shop</Card.Title>
+        <Card.Text className="text-center">
+          Our shop provides a wide range of men's and women's clothing and
+          accessories.
         </Card.Text>
-        <Card.Text>Last updated 3 mins ago</Card.Text>
+        <hr />
+        <Card.Text className="text-center">Let's go shopping</Card.Text>
       </Card.ImgOverlay>
     </Card>
   );
