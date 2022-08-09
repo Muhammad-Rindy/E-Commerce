@@ -11,7 +11,6 @@ function Index() {
   const params = useParams();
   const product = useSelector((state) => state.product.detail);
   const data = useSelector((state) => state.product.data);
-  console.log(product);
 
   useEffect(() => {
     dispatch(setDetail(params.index));

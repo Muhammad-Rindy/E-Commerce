@@ -9,7 +9,6 @@ export default function Product() {
   const products = useSelector((state) => state.product.display);
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.product.loading);
-  console.log(products);
 
   const Loading = () => {
     return (
@@ -98,7 +97,7 @@ export default function Product() {
 
   return (
     <div>
-      <div className="container my-5 py-5">
+      <div className="container my-5 py-0">
         <div className="row">
           <div className="col-12 mb-5">
             <h1 className="display-6 fw-bolder text-center">Latest Product</h1>
