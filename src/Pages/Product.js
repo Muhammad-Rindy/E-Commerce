@@ -65,9 +65,9 @@ export default function Product() {
         </div>
 
         {products.length > 0 &&
-          products.map((product, index) => {
+          products.map((product, id) => {
             return (
-              <div className="col-md-3 mb-4" key={index}>
+              <div className="col-md-3 mb-4" key={id}>
                 <div
                   className="card h-100 text-center p-4"
                   style={{ width: "18rem" }}
@@ -80,11 +80,13 @@ export default function Product() {
                   />
                   <div className="card-body">
                     <h5 className="card-title mb-0">
-                      {" "}
                       {product.title.substring(0, 12)}
                     </h5>
                     <p className="card-text">${product.price}</p>
-                    <Link to={`/detail/${index}`} className="btn btn-primary">
+                    <Link
+                      to={`/detail/${product.id}`}
+                      className="btn btn-primary"
+                    >
                       Buy
                     </Link>
                   </div>

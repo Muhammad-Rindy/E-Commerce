@@ -45,10 +45,10 @@ export const resetFilter = () => (dispatch, getState) => {
   });
 };
 
-export const setDetail = (index) => (dispatch, getState) => {
+export const setDetail = (id) => (dispatch, getState) => {
   const state = getState();
   const data = state.product.data;
-  const detail = data[index];
+  const detail = data.filter((product) => product.id === Number(id))[0];
   dispatch({
     type: PRODUCT.DETAIL,
     payload: detail,

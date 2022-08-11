@@ -5,6 +5,8 @@ import Index from "./Detail/Index";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getAllProduct } from "./Redux/action";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,7 +19,9 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/product" element={<Product />} />
-      <Route path="/detail/:index" element={<Index />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/detail/:id" element={<Index />} />
     </Routes>
   );
 }

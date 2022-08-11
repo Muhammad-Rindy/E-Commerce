@@ -4,6 +4,7 @@ import Spinner from "react-bootstrap/Spinner";
 import { useSelector, useDispatch } from "react-redux";
 import { resetFilter, setFilter } from "../Redux/action";
 import { Link } from "react-router-dom";
+import Layout from "../Layout/Index";
 
 export default function Product() {
   const products = useSelector((state) => state.product.display);
@@ -32,7 +33,7 @@ export default function Product() {
       <>
         <div className="buttons d-flex justify-content-center mb-5 pb-5">
           <button
-            className="btn btn-outline-dark me-2"
+            className="btn btn-outline-dark me-2 "
             onClick={() => dispatch(resetFilter())}
           >
             All
@@ -64,9 +65,9 @@ export default function Product() {
         </div>
 
         {products.length > 0 &&
-          products.map((product, index) => {
+          products.map((product, id) => {
             return (
-              <div className="col-md-3 mb-4" key={index}>
+              <div className="col-md-3 mb-4" key={id}>
                 <div
                   className="card h-100 text-center p-4"
                   style={{ width: "18rem" }}
@@ -79,11 +80,13 @@ export default function Product() {
                   />
                   <div className="card-body">
                     <h5 className="card-title mb-0">
-                      {" "}
                       {product.title.substring(0, 12)}
                     </h5>
                     <p className="card-text">${product.price}</p>
-                    <Link to={`/detail/${index}`} className="btn btn-primary">
+                    <Link
+                      to={`/detail/${product.id}`}
+                      className="btn btn-primary"
+                    >
                       Buy
                     </Link>
                   </div>
@@ -96,17 +99,15 @@ export default function Product() {
   };
 
   return (
-    <div>
-      <div className="container my-5 py-0">
-        <div className="row">
-          <div className="col-12 mb-5">
-            <h1 className="display-6 fw-bolder text-center">Latest Product</h1>
-            <hr />
-          </div>
+    <div className="container my-5 py-0">
+      <div className="row">
+        <div className="col-12 mb-5">
+          <h1 className="display-6 fw-bolder text-center">Latest Product</h1>
+          <hr />
         </div>
-        <div className="row justify-content-center">
-          {loading ? <Loading /> : <ShowProducts />}
-        </div>
+      </div>
+      <div className="row justify-content-center">
+        {loading ? <Loading /> : <ShowProducts />}
       </div>
     </div>
   );

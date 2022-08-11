@@ -13,22 +13,32 @@ function Index() {
   const data = useSelector((state) => state.product.data);
 
   useEffect(() => {
-    dispatch(setDetail(params.index));
+    dispatch(setDetail(params.id));
   }, [data]);
 
   return (
     <Layout>
-      <Container>
-        <Card className="w-100">
-          <Card.Img variant="top" src={product?.image} />
-          <Card.Body>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      </Container>
+      <div className="detail">
+        <div className="col-md-6">
+          <img
+            src={product?.image}
+            alt={product?.title}
+            height="400px"
+            width="400px"
+          />
+        </div>
+        <div className="col-md-6">
+          <h4 className="text-uppercase text-black-50">{product?.category}</h4>
+          <h1 className="display-5">{product?.title}</h1>
+          <p className="lead">
+            Rating {product?.rating && product?.rating.rate}
+          </p>
+          <h3 className="display-6 fw-bold my-4">${product?.price}</h3>
+          <p className="lead">{product?.description}</p>
+          <button className="btn btn-outline-dark">Add to Cart</button>
+          <button className="btn btn-outline">Go to Cart</button>
+        </div>
+      </div>
     </Layout>
   );
 }
